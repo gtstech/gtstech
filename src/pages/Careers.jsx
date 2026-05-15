@@ -16,7 +16,7 @@ const Careers = () => {
   return (
     <div className="careers-page">
       <Header />
-      <div className="pt-[100px]">
+      <div className="pt-16">
 
       <section className="hero-banner" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="hero-content">

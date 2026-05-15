@@ -1,99 +1,149 @@
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
-import { getPageConfig } from '../config/techPagesConfig';
-import ScrollToTop from '../components/common/ScrollToTop';
+import { Link } from 'react-router-dom';
+import { FiArrowLeft, FiMail, FiArrowRight } from 'react-icons/fi';
 
-export default function ComingSoon() {
-  const location = useLocation();
-  const pageConfig = getPageConfig(location.pathname);
+const particles = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  left: `${(i * 17 + 5) % 100}%`,
+  top: `${(i * 23 + 10) % 100}%`,
+  duration: 6 + (i % 5),
+  delay: (i * 0.4) % 4,
+}));
 
-  const getPageType = () => {
-    if (location.pathname.includes('/technology/')) {
-      return 'technology';
-    }
-    return 'general';
-  };
-
-  const pageType = getPageType();
-  let subtitle = '';
-
-  if (pageType === 'technology' && pageConfig) {
-    subtitle = `We're preparing detailed information about ${pageConfig.title}. Check back soon!`;
-  } else if (pageType === 'technology') {
-    subtitle = 'We\'re preparing this technology page. Check back soon for comprehensive information and service offerings!';
-  } else {
-    subtitle = 'We\'re working hard to bring you something amazing. Stay tuned for updates!';
-  }
+/**
+ * Reusable Coming Soon page.
+ *
+ * Props:
+ *   title       — section name shown above the headline (e.g. "Press Releases")
+ *   description — optional override for the body text
+ *   icon        — optional emoji displayed above the headline
+ *   backPath    — where the "Go Back" button links (default "/")
+ *   backLabel   — label for the back button (default "Back to Home")
+ */
+export default function ComingSoon({
+  title = 'This Section',
+  description,
+  icon = '🚀',
+  backPath = '/',
+  backLabel = 'Back to Home',
+}) {
+  const body =
+    description ??
+    `Something exciting is on the way. ${title} is currently under development and will be available soon. Stay tuned for updates.`;
 
   return (
-    <>
-      <ScrollToTop />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center px-4 pt-26">
+    <div className="min-h-screen bg-gradient-to-b from-white via-red-50/40 to-white flex flex-col items-center justify-center relative overflow-hidden px-4 pt-24 pb-20">
+      {/* Floating background particles */}
+      {particles.map((p) => (
+        <motion.span
+          key={p.id}
+          className="absolute w-1.5 h-1.5 rounded-full bg-red-500 opacity-20 pointer-events-none"
+          style={{ left: p.left, top: p.top }}
+          animate={{ y: [0, -120, 0], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
+        />
+      ))}
+
+      {/* Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="relative z-10 text-center max-w-2xl w-full"
+      >
+        {/* Animated icon */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl"
+          animate={{ scale: [1, 1.12, 1] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="text-6xl mb-6 select-none"
+          aria-hidden="true"
         >
-          {/* Icon */}
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="text-7xl mb-8"
-          >
-            🚀
-          </motion.div>
-
-          {/* Title */}
-          <h1 className="text-5xl font-black text-gray-900 mb-4">
-            Coming <span className="text-blue-600">Soon</span>
-          </h1>
-
-          {/* Brand */}
-          <p className="text-sm font-semibold text-blue-600 mb-6">GTS TECH & INFRA SOLUTIONS</p>
-
-          {/* Description */}
-          <p className="text-lg text-gray-600 mb-8">
-            {subtitle}
-          </p>
-
-          {/* Page Info (for tech pages) */}
-          {pageType === 'technology' && pageConfig && (
-            <div className="mb-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">{pageConfig.category}</span> →{' '}
-                <span className="font-semibold text-gray-900">{pageConfig.title}</span>
-              </p>
-            </div>
-          )}
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all transform hover:scale-105"
-            >
-              Explore Our Services
-            </Link>
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-200 text-gray-900 font-bold rounded-full hover:bg-gray-300 transition-all transform hover:scale-105"
-            >
-              <FiArrowLeft size={18} />
-              Back to Home
-            </Link>
-          </div>
-
-          {/* Contact CTA */}
-          <p className="text-sm text-gray-500 mt-8">
-            Want to learn more about this service?{' '}
-            <Link to="/contact" className="text-blue-600 font-semibold hover:text-blue-800">
-              Get in touch with us
-            </Link>
-          </p>
+          {icon}
         </motion.div>
-      </div>
-    </>
+
+        {/* Section label */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="text-xs font-bold tracking-widest uppercase text-red-500 mb-3"
+        >
+          {title}
+        </motion.p>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.55 }}
+          className="text-5xl sm:text-6xl font-black text-gray-900 mb-5 leading-tight"
+        >
+          Coming <span className="text-red-600">Soon</span>
+        </motion.h1>
+
+        {/* Animated dots bar */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.35, duration: 0.6, ease: 'easeOut' }}
+          className="h-1 w-20 bg-gradient-to-r from-red-600 to-red-400 rounded-full mx-auto mb-8"
+        />
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.55 }}
+          className="text-lg text-gray-600 leading-relaxed mb-10 max-w-xl mx-auto"
+        >
+          {body}
+        </motion.p>
+
+        {/* Action buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+        >
+          <Link
+            to={backPath}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-gray-100 text-gray-800 font-bold text-sm rounded-full hover:bg-gray-200 transition-all"
+          >
+            <FiArrowLeft size={15} />
+            {backLabel}
+          </Link>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-red-600 text-white font-bold text-sm rounded-full hover:bg-red-700 transition-all"
+          >
+            <FiMail size={15} />
+            Get in Touch
+          </Link>
+        </motion.div>
+
+        {/* Subtle footer note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.65, duration: 0.6 }}
+          className="flex items-center justify-center gap-2 text-sm text-gray-400"
+        >
+          <span className="text-red-400 font-black italic">GTS</span>
+          <span>·</span>
+          <span>Deep in</span>
+          <span className="font-black">Digital</span>
+          <span>·</span>
+          <Link
+            to="/"
+            className="hover:text-red-500 transition-colors inline-flex items-center gap-1 group"
+          >
+            Explore our solutions
+            <FiArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 }

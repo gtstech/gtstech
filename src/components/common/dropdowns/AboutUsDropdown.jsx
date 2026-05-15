@@ -4,17 +4,17 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function AboutUsDropdown({ isMobile = false, onClose = () => {} }) {
   const menuItems = [
-    { name: 'Company Overview', icon: '🏢', link: '/about-us/overview' },
-    { name: 'DataLabs', icon: '🔬', link: '/about-us/datalabs' },
-    { name: 'Board of Directors & Senior Management', icon: '👔', link: '/about-us/management' },
-    { name: 'Awards and Recognition', icon: '🏆', link: '/about-us/awards' },
-    { name: 'Customer Testimonials', icon: '⭐', link: '/about-us/testimonials' },
-    { name: 'Alliances', icon: '🤝', link: '/about-us/alliances' },
-    { name: 'Deep In Digital', icon: '🚀', link: '/about-us/deep-in-digital' },
-    { name: 'Our Offices', icon: '📍', link: '/about-us/offices' },
-    { name: 'Corporate Social Responsibility', icon: '❤️', link: '/about-us/csr' },
-    { name: 'Environmental Social Governance (ESG)', icon: '🌱', link: '/about-us/esg' },
-    { name: 'Media', icon: '📰', link: '/about-us/media' },
+    { name: 'Company Overview', icon: '🏢', link: '/about/company-overview' },
+    { name: 'DataLabs', icon: '🔬', link: '/about/datalabs' },
+    { name: 'Board of Directors & Senior Management', icon: '👔', link: '/about/leadership' },
+    { name: 'Awards and Recognition', icon: '🏆', link: '/about/awards' },
+    { name: 'Customer Testimonials', icon: '⭐', link: '/about/testimonials' },
+    { name: 'Alliances', icon: '🤝', link: '/about/alliances' },
+    { name: 'Deep In Digital', icon: '🚀', link: '/about/deep-in-digital' },
+    { name: 'Our Offices', icon: '📍', link: '/about/offices' },
+    { name: 'Corporate Social Responsibility', icon: '❤️', link: '/about/csr' },
+    { name: 'Environmental Social Governance (ESG)', icon: '🌱', link: '/about/esg' },
+    { name: 'Media', icon: '📰', link: '/resources/media' },
   ];
 
   const containerVariants = {

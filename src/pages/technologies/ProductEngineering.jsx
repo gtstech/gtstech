@@ -1,157 +1,72 @@
-import React from 'react';
-import TechPageTemplate from '../../components/TechPageTemplate';
-import ScrollToTop from '../../components/common/ScrollToTop';
+﻿import PageHeader from "../../components/PageHeader";
+import CtaBanner from "../../components/CtaBanner";
 
-const ProductEngineering = () => {
-  const pageData = {
-    hero: {
-      eyebrow: 'Digital Transformation',
-      title: 'Product Engineering Services',
-      subtitle: 'Turn Business Ideas Into Tangible Realities',
-      description: 'From concept to market, we deliver end-to-end product engineering services. Our design-led approach and agile methodology ensure successful product launches.',
-      primaryCTA: {
-        text: 'Submit an Inquiry',
-        href: '#contact'
-      }
-    },
-    sections: [
-      {
-        title: 'Product Engineering Services',
-        subtitle: 'Complete product lifecycle management',
-        gridCols: 'grid-cols-1 md:grid-cols-3',
-        content: [
-          {
-            icon: '💡',
-            title: 'Product Management',
-            description: 'Strategic product planning and roadmap development',
-            bullets: ['Vision & strategy', 'Roadmap planning', 'Go-to-market strategy']
-          },
-          {
-            icon: '🚀',
-            title: 'Product Development',
-            description: 'Full-cycle product development and delivery',
-            bullets: ['Agile development', 'MVP creation', 'Feature engineering']
-          },
-          {
-            icon: '🔄',
-            title: 'Software Lifecycle',
-            description: 'Complete software product lifecycle management',
-            bullets: ['Maintenance & support', 'Version management', 'Scaling & optimization']
-          }
-        ]
-      },
-      {
-        title: 'Design & Development Services',
-        subtitle: 'Comprehensive development across all platforms',
-        gridCols: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-5',
-        content: [
-          {
-            icon: '🌐',
-            title: 'Web Development',
-            description: 'Modern web applications and platforms'
-          },
-          {
-            icon: '📱',
-            title: 'Mobile Development',
-            description: 'iOS and Android application development'
-          },
-          {
-            icon: '🎨',
-            title: 'UI/UX Design',
-            description: 'Beautiful, intuitive user interfaces'
-          },
-          {
-            icon: '🥽',
-            title: 'AR/VR',
-            description: 'Immersive augmented and virtual reality experiences'
-          },
-          {
-            icon: '⌚',
-            title: 'Wearables',
-            description: 'Wearable device application development'
-          }
-        ]
-      },
-      {
-        title: 'Technology Stack',
-        subtitle: 'Modern technologies and frameworks',
-        gridCols: 'grid-cols-1 md:grid-cols-3',
-        content: [
-          {
-            title: 'Frontend',
-            description: 'React, Angular, Vue.js, Next.js',
-            bullets: ['Angular', 'React', 'Vue.js', 'TypeScript']
-          },
-          {
-            title: 'Backend',
-            description: 'Node.js, Spring Boot, .NET Core',
-            bullets: ['Node.js', 'Spring Boot', '.NET Core', 'Python']
-          },
-          {
-            title: 'Database & Cloud',
-            description: 'AWS, Azure, GCP, MongoDB, PostgreSQL',
-            bullets: ['AWS & Azure', 'MongoDB', 'PostgreSQL', 'Docker & K8s']
-          }
-        ]
-      },
-      {
-        title: 'Why Choose GTS Tech',
-        subtitle: 'Our product engineering advantages',
-        gridCols: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
-        content: [
-          {
-            icon: '📊',
-            title: '200+ Products',
-            description: 'Delivered across diverse industries'
-          },
-          {
-            icon: '🎨',
-            title: 'Design-Led',
-            description: 'User-centric design approach'
-          },
-          {
-            icon: '⚡',
-            title: 'Accelerators',
-            description: 'Pre-built frameworks and tools'
-          },
-          {
-            icon: '📈',
-            title: 'Lean & Agile',
-            description: 'MVP-first, iterative approach'
-          }
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: 'What is product engineering?',
-        answer: 'Product engineering combines product management, software development, and design to deliver successful products from conception to market.'
-      },
-      {
-        question: 'How long does it take to build a product?',
-        answer: 'MVP development typically takes 3-6 months. Time depends on complexity, features, and testing requirements.'
-      },
-      {
-        question: 'What is the MVP approach?',
-        answer: 'MVP (Minimum Viable Product) allows you to launch with core features quickly, gather user feedback, and iterate.'
-      },
-      {
-        question: 'Do you handle post-launch support?',
-        answer: 'Yes, we provide comprehensive post-launch support, maintenance, and ongoing optimization services.'
-      },
-      {
-        question: 'What platforms do you develop for?',
-        answer: 'We develop for web, iOS, Android, wearables, AR/VR, and emerging platforms with modern technology stacks.'
-      }
-    ]
-  };
-
+export default function ProductEngineering() {
   return (
-    <>
-      <ScrollToTop />
-      <TechPageTemplate {...pageData} />
-    </>
-  );
-};
+    <div>
+      <PageHeader
+        title="Product Engineering"
+        subtitle="End-to-end product engineering services — from market insight and UX design through engineering, DevOps, and lifecycle management — that help enterprises build software products that users love and markets reward."
+        breadcrumbs={[["Home", "/"], ["Technologies", "/technologies"], ["Product Engineering"]]}
+      />
 
-export default ProductEngineering;
+      <section className="py-16 px-4 max-w-7xl mx-auto">
+        <div className="max-w-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Product Strategy & Design</h2>
+          <p className="text-gray-600 leading-relaxed text-lg mb-4">
+            Great software products begin with a deep understanding of user needs, market dynamics, and business goals. GTS Techs brings product strategists, UX researchers, and service designers who apply human-centered design methods — user research, journey mapping, prototyping, and usability testing — to validate product concepts before significant engineering investment is committed.
+          </p>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            Our product strategy engagements define clear product vision, value propositions, feature prioritization frameworks, and go-to-market considerations. We help product teams adopt modern product management practices — OKRs, continuous discovery, and outcome-based roadmaps — that keep product development aligned with real user and business needs as they evolve.
+          </p>
+        </div>
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Product Vision & Strategy",
+            "User Research & Market Analysis",
+            "UX Design & Prototyping",
+            "Design Systems Development",
+            "Accessibility & Inclusive Design",
+            "Product Roadmap & OKR Facilitation",
+          ].map((item) => (
+            <div key={item} className="bg-white rounded-xl p-6 shadow">
+              <h3 className="font-semibold text-[#dc2626] mb-2">{item}</h3>
+              <p className="text-gray-600 text-sm">Human-centered design services that validate ideas early and reduce the cost of building the wrong product.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="px-4 max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Engineering & DevOps</h2>
+          <p className="text-gray-600 text-lg mb-8 max-w-3xl">
+            Translating product vision into production-quality software requires disciplined engineering, modern tooling, and a culture of continuous improvement. Our product engineering teams build cloud-native, API-first software using agile delivery practices with automated testing, security scanning, and continuous deployment pipelines that keep release cycles short and quality high. We engineer for observability from the start, ensuring production issues surface quickly and are resolved before they impact users.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "Cloud-Native Product Development",
+              "CI/CD Pipeline Automation",
+              "Test-Driven & Behavior-Driven Development",
+              "SRE & Reliability Engineering",
+              "API-First & Event-Driven Architecture",
+              "Technical Debt Management",
+            ].map((item) => (
+              <div key={item} className="bg-white rounded-xl p-6 shadow">
+                <h3 className="font-semibold text-[#dc2626] mb-2">{item}</h3>
+                <p className="text-gray-600 text-sm">Engineering practices designed for velocity, reliability, and the long-term health of your product codebase.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner
+        title="Engineer Products That Create Lasting Value"
+        subtitle="Explore our CRM Services to see how we help enterprises build customer-centric systems that drive loyalty and revenue growth."
+        linkLabel="Explore CRM Services"
+        linkTo="/technologies/crm"
+      />
+    </div>
+  );
+}

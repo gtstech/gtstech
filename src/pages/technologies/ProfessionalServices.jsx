@@ -1,143 +1,72 @@
-import React from 'react';
-import TechPageTemplate from '../../components/TechPageTemplate';
-import ScrollToTop from '../../components/common/ScrollToTop';
+﻿import PageHeader from "../../components/PageHeader";
+import CtaBanner from "../../components/CtaBanner";
 
-const ProfessionalServices = () => {
-  const pageData = {
-    hero: {
-      eyebrow: 'Professional Services',
-      title: 'Professional Staffing Services',
-      subtitle: 'Strategic Partner For Your Contingent Workforce',
-      description: 'Global staffing solutions across IT, engineering, and professional services. Access top talent with our extensive network and rigorous vetting process.',
-      primaryCTA: {
-        text: 'Submit an Inquiry',
-        href: '#contact'
-      }
-    },
-    sections: [
-      {
-        title: 'Datamatics Advantages',
-        subtitle: 'Why choose GTS Tech for staffing',
-        gridCols: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-        content: [
-          {
-            icon: '🌍',
-            title: 'Global Footprint',
-            description: 'Presence across multiple continents',
-            bullets: ['Multiple regions', 'Local expertise', 'Time zone coverage']
-          },
-          {
-            icon: '💰',
-            title: 'Value',
-            description: 'Cost-effective staffing solutions',
-            bullets: ['Competitive pricing', 'No setup fees', 'Flexible terms']
-          },
-          {
-            icon: '📦',
-            title: 'Delivery',
-            description: 'Reliable and consistent delivery',
-            bullets: ['On-time placement', 'Quality assurance', 'Replacement guarantee']
-          },
-          {
-            icon: '🔒',
-            title: 'Security',
-            description: 'Secure and compliant workforce',
-            bullets: ['Background checks', 'Compliance training', 'Data security']
-          },
-          {
-            icon: '🎯',
-            title: 'Skill-Set Focused',
-            description: 'Specialized talent across domains',
-            bullets: ['IT specialists', 'Engineers', 'Domain experts', 'Senior resources']
-          },
-          {
-            icon: '🤝',
-            title: 'Dedicated Support',
-            description: 'Comprehensive staffing support',
-            bullets: ['Resource management', 'Performance tracking', 'Escalation handling']
-          }
-        ]
-      },
-      {
-        title: 'Staffing Categories',
-        subtitle: 'Diverse staffing solutions across skill levels',
-        gridCols: 'grid-cols-1 md:grid-cols-3',
-        content: [
-          {
-            title: 'IT Staffing',
-            description: 'Software engineers, developers, and IT specialists',
-            bullets: ['Full-stack developers', 'Cloud architects', 'DBAs', 'Infrastructure experts']
-          },
-          {
-            title: 'Engineering Staffing',
-            description: 'Hardware and mechanical engineering talent',
-            bullets: ['Hardware engineers', 'Systems engineers', 'QA engineers', 'Technical leads']
-          },
-          {
-            title: 'Professional Services',
-            description: 'Experienced consultants and advisors',
-            bullets: ['Business analysts', 'Project managers', 'Solutions architects', 'Consultants']
-          }
-        ]
-      },
-      {
-        title: 'Industry Focus',
-        subtitle: 'Deep expertise across key industries',
-        gridCols: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-        content: [
-          {
-            title: 'Aerospace & Defense',
-            description: 'Specialized staffing for aerospace sector'
-          },
-          {
-            title: 'Manufacturing',
-            description: 'Manufacturing and industrial expertise'
-          },
-          {
-            title: 'Automotive & Transit',
-            description: 'Automotive and transportation specialists'
-          },
-          {
-            title: 'Banking & Finance',
-            description: 'FinTech and financial services talent'
-          },
-          {
-            title: 'Pharmaceuticals',
-            description: 'Pharma and life sciences expertise'
-          },
-          {
-            title: 'Healthcare IT',
-            description: 'Healthcare technology specialists'
-          }
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: 'What is professional staffing vs managed services?',
-        answer: 'Professional staffing provides individual resources for specific projects, while managed services are end-to-end project delivery with full responsibility.'
-      },
-      {
-        question: 'How quickly can you fill positions?',
-        answer: 'We typically fill positions within 1-2 weeks through our extensive candidate network and rigorous screening process.'
-      },
-      {
-        question: 'What is your replacement guarantee?',
-        answer: 'If a resource is not meeting expectations, we replace them at no additional cost within the first 30 days.'
-      },
-      {
-        question: 'Do you provide remote staffing?',
-        answer: 'Yes, we provide both on-site and remote staffing solutions based on your requirements and location needs.'
-      }
-    ]
-  };
-
+export default function ProfessionalServices() {
   return (
-    <>
-      <ScrollToTop />
-      <TechPageTemplate {...pageData} />
-    </>
-  );
-};
+    <div>
+      <PageHeader
+        title="Professional Services"
+        subtitle="Strategic advisory and hands-on implementation services that help enterprises plan, execute, and sustain complex technology programs with confidence."
+        breadcrumbs={[["Home", "/"], ["Technologies", "/technologies"], ["Professional Services"]]}
+      />
 
-export default ProfessionalServices;
+      <section className="py-16 px-4 max-w-7xl mx-auto">
+        <div className="max-w-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Advisory Services</h2>
+          <p className="text-gray-600 leading-relaxed text-lg mb-4">
+            Technology investment decisions are among the most consequential an enterprise makes. GTS Techs advisory services bring independent expertise, benchmarking data, and structured frameworks to help technology and business leaders make informed decisions about platform selection, transformation sequencing, operating model design, and sourcing strategy. Our advisors have hands-on delivery experience — we advise based on what we know works in practice, not just in theory.
+          </p>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            Our advisory engagements are designed to be focused and decisive. Whether you need a rapid technology assessment, a business case for a major investment, a vendor evaluation, or an independent review of a program in flight, we structure our advisory work to produce clear recommendations with an actionable path forward — not reports that sit on shelves.
+          </p>
+        </div>
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Technology Strategy & Roadmapping",
+            "Platform & Vendor Selection",
+            "Business Case Development",
+            "IT Operating Model Design",
+            "Program Health Reviews",
+            "Sourcing & Governance Advisory",
+          ].map((item) => (
+            <div key={item} className="bg-white rounded-xl p-6 shadow">
+              <h3 className="font-semibold text-[#dc2626] mb-2">{item}</h3>
+              <p className="text-gray-600 text-sm">Independent advisory grounded in delivery experience and supported by industry benchmarks and best-practice frameworks.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="px-4 max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Implementation Services</h2>
+          <p className="text-gray-600 text-lg mb-8 max-w-3xl">
+            Advisory without delivery is incomplete. Our professional services practice spans the full delivery lifecycle — from program setup and architecture through configuration, development, testing, training, and cutover. We apply structured project management methodologies alongside agile delivery practices, giving enterprise programs the governance they need while maintaining the flexibility to respond to change.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "Program Management & PMO Setup",
+              "Solution Architecture & Design",
+              "Configuration & Custom Development",
+              "Systems Integration",
+              "User Acceptance Testing (UAT)",
+              "Training & Change Management",
+            ].map((item) => (
+              <div key={item} className="bg-white rounded-xl p-6 shadow">
+                <h3 className="font-semibold text-[#dc2626] mb-2">{item}</h3>
+                <p className="text-gray-600 text-sm">Implementation services delivered by experienced practitioners using proven delivery frameworks and accelerators that reduce time and risk.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner
+        title="Partner With Experts Who Deliver"
+        subtitle="Explore our Digital Assurance practice to see how AI-led quality engineering protects the reliability and performance of your technology investments."
+        linkLabel="Explore Digital Assurance"
+        linkTo="/technologies/digital-assurance"
+      />
+    </div>
+  );
+}

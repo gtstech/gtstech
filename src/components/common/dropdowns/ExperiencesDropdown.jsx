@@ -6,34 +6,35 @@ export default function ExperiencesDropdown({ isMobile = false, onClose = () => 
   const categories = [
     {
       title: 'Contact Center Transformation',
-      items: ['Digital-first Contact Center Services'],
-      link: '/experiences/contact-center',
-    },
-    {
-      title: 'Customer Care',
       items: [
-        'Customer Loyalty Management',
-        'Trust and Safety',
-        'Customer Analytics',
-        'Customer Management Consulting',
+        { label: 'Customer Care', path: '/experiences/customer-care' },
+        { label: 'Customer Loyalty Management', path: '/experiences/customer-loyalty' },
+        { label: 'Trust and Safety', path: '/experiences/trust-and-safety' },
+        { label: 'Customer Analytics', path: '/experiences/customer-analytics' },
+        { label: 'Customer Management Consulting', path: '/experiences/customer-consulting' },
       ],
-      link: '/experiences/customer-care',
+      link: '/experiences/contact-center',
     },
     {
       title: 'Digital Proctoring',
       items: [],
-      link: '/experiences/proctoring',
+      link: '/experiences/digital-proctoring',
       promo: true,
     },
     {
       title: 'Research & Analytics',
       items: [
-        'XM Consulting',
-        'Global Capability Center for Market Research (GCC)',
-        'Research Technology',
-        'SuperCX',
+        { label: 'XM Consulting', path: '/experiences/xm-consulting' },
+        { label: 'GCC for Market Research', path: '/experiences/gcc' },
+        { label: 'Research Technology', path: '/experiences/research-technology' },
       ],
-      link: '/experiences/research',
+      link: '/experiences/research-analytics',
+    },
+    {
+      title: 'SuperCX Platform',
+      items: [],
+      link: '/products/supercx',
+      promo: true,
     },
   ];
 
@@ -60,9 +61,9 @@ export default function ExperiencesDropdown({ isMobile = false, onClose = () => 
             {cat.items.length > 0 && (
               <ul className="space-y-1 ml-4">
                 {cat.items.map((item) => (
-                  <li key={item}>
-                    <Link to="#" className="text-gray-400 hover:text-red-400 text-sm transition">
-                      {item}
+                  <li key={item.label}>
+                    <Link to={item.path} onClick={onClose} className="text-gray-400 hover:text-red-400 text-sm transition">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -100,13 +101,14 @@ export default function ExperiencesDropdown({ isMobile = false, onClose = () => 
               {cat.items.length > 0 && (
                 <ul className="space-y-2 mb-3">
                   {cat.items.map((item) => (
-                    <li key={item}>
+                    <li key={item.label}>
                       <Link
-                        to="#"
+                        to={item.path}
+                        onClick={onClose}
                         className="text-gray-600 hover:text-red-600 text-sm transition flex items-center group/item"
                       >
                         <span className="w-0 group-hover/item:w-2 h-0.5 bg-red-600 transition-all mr-0 group-hover/item:mr-2" />
-                        {item}
+                        {item.label}
                       </Link>
                     </li>
                   ))}
@@ -126,7 +128,7 @@ export default function ExperiencesDropdown({ isMobile = false, onClose = () => 
       {/* Promo Banner */}
       <div className="bg-gradient-to-r from-red-100/50 to-transparent border-t border-gray-200 px-8 py-6">
         <Link
-          to="/experiences/supercx"
+          to="/products/supercx"
           className="text-sm text-gray-600 hover:text-red-600 transition flex items-center gap-2 group"
         >
           <span className="text-red-500">🤖</span>

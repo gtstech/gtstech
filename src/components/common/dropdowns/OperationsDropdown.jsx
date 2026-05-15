@@ -7,33 +7,38 @@ export default function OperationsDropdown({ isMobile = false, onClose = () => {
     {
       title: 'Digital Finance',
       items: [
-        'Finance & Accounting',
-        'Banking Process Management',
-        'Insurance Process Management',
-        'Healthcare Process Management',
+        { label: 'Finance & Accounting', path: '/operations/finance-accounting' },
+        { label: 'Banking Process Management', path: '/operations/banking-process' },
+        { label: 'Insurance Process Management', path: '/operations/insurance-process' },
+        { label: 'Healthcare Process Management', path: '/operations/healthcare-process' },
       ],
-      link: '/operations/finance',
+      link: '/operations/digital-finance',
     },
     {
       title: 'Automation',
       items: [
-        'Intelligent Automation Platform',
-        'TruBot – RPA Solution',
-        'TruCap+ – IDP Solution',
-        'TruAgent',
+        { label: 'Intelligent Automation Platform', path: '/operations/intelligent-automation' },
+        { label: 'TruBot – RPA Solution', path: '/products/trubot' },
+        { label: 'TruCap+ – IDP Solution', path: '/products/trucap' },
+        { label: 'TruAgent', path: '/products/truagent' },
       ],
       link: '/operations/automation',
     },
     {
       title: 'GTS FINATO',
       subtitle: 'AI-powered Finance Transformation',
-      items: ['Procure-to-Pay (P2P)', 'Order-to-Cash (O2C)', 'Record-to-Report (R2R)', 'Financial Planning & Analysis (FP&A)'],
+      items: [
+        { label: 'Procure-to-Pay (P2P)', path: '/operations/procure-to-pay' },
+        { label: 'Order-to-Cash (O2C)', path: '/operations/order-to-cash' },
+        { label: 'Record-to-Report (R2R)', path: '/operations/record-to-report' },
+        { label: 'Financial Planning & Analysis (FP&A)', path: '/operations/fpa' },
+      ],
       link: '/operations/finato',
     },
     {
       title: 'Digital Content',
       items: [],
-      link: '/operations/content',
+      link: '/operations/digital-content',
       promo: true,
     },
   ];
@@ -62,9 +67,9 @@ export default function OperationsDropdown({ isMobile = false, onClose = () => {
             {cat.items.length > 0 && (
               <ul className="space-y-1 ml-4">
                 {cat.items.map((item) => (
-                  <li key={item}>
-                    <Link to="#" className="text-gray-400 hover:text-red-400 text-sm transition">
-                      {item}
+                  <li key={item.label}>
+                    <Link to={item.path} onClick={onClose} className="text-gray-400 hover:text-red-400 text-sm transition">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -103,13 +108,14 @@ export default function OperationsDropdown({ isMobile = false, onClose = () => {
               {cat.items.length > 0 && (
                 <ul className="space-y-2 mb-3">
                   {cat.items.map((item) => (
-                    <li key={item}>
+                    <li key={item.label}>
                       <Link
-                        to="#"
+                        to={item.path}
+                        onClick={onClose}
                         className="text-gray-600 hover:text-red-600 text-sm transition flex items-center group/item"
                       >
                         <span className="w-0 group-hover/item:w-2 h-0.5 bg-red-600 transition-all mr-0 group-hover/item:mr-2" />
-                        {item}
+                        {item.label}
                       </Link>
                     </li>
                   ))}

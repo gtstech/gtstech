@@ -4,15 +4,15 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function IndustriesDropdown({ isMobile = false, onClose = () => {} }) {
   const industries = [
-    { name: 'Banking & Financial Services', icon: '🏦', link: '/industries/banking' },
+    { name: 'Banking & Financial Services', icon: '🏦', link: '/industries/banking-financial-services' },
     { name: 'Insurance', icon: '🛡️', link: '/industries/insurance' },
     { name: 'Manufacturing', icon: '🏭', link: '/industries/manufacturing' },
     { name: 'Logistics', icon: '📦', link: '/industries/logistics' },
     { name: 'Healthcare', icon: '🏥', link: '/industries/healthcare' },
     { name: 'Technology', icon: '💻', link: '/industries/technology' },
-    { name: 'Travel & Transportation', icon: '✈️', link: '/industries/travel' },
+    { name: 'Travel & Transportation', icon: '✈️', link: '/industries/travel-hospitality' },
     { name: 'Credit Rating', icon: '⭐', link: '/industries/credit-rating' },
-    { name: 'International Organisations', icon: '🌍', link: '/industries/international' },
+    { name: 'International Organisations', icon: '🌍', link: '/industries/international-organisations' },
     { name: 'Retail', icon: '🛍️', link: '/industries/retail' },
     { name: 'Education', icon: '🎓', link: '/industries/education' },
     { name: 'Market Research', icon: '📈', link: '/industries/market-research' },

@@ -4,31 +4,31 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function ResourcesDropdown({ isMobile = false, onClose = () => {} }) {
   const topics = [
-    { name: 'Artificial Intelligence', icon: '🤖', link: '/resources/ai' },
-    { name: 'Digital Finance and Accounting', icon: '💼', link: '/resources/finance' },
-    { name: 'Intelligent Automation', icon: '⚙️', link: '/resources/automation' },
-    { name: 'Enterprise Content Management', icon: '📁', link: '/resources/ecm' },
-    { name: 'Robotic Process Automation', icon: '🦾', link: '/resources/rpa' },
-    { name: 'Automatic Fare Collection', icon: '🚌', link: '/resources/fare' },
-    { name: 'Big Data and Analytics', icon: '📊', link: '/resources/bigdata' },
-    { name: 'Salesforce', icon: '☁️', link: '/resources/salesforce' },
-    { name: 'Product Engineering', icon: '🔧', link: '/resources/engineering' },
-    { name: 'Customer Experience', icon: '😊', link: '/resources/cx' },
-    { name: 'Consumer Research & Analytics', icon: '🔍', link: '/resources/research' },
+    { name: 'Artificial Intelligence', icon: '🤖', link: '/resources/topics/ai' },
+    { name: 'Digital Finance and Accounting', icon: '💼', link: '/resources/topics/digital-finance' },
+    { name: 'Intelligent Automation', icon: '⚙️', link: '/resources/topics/intelligent-automation' },
+    { name: 'Enterprise Content Management', icon: '📁', link: '/resources/topics/ecm' },
+    { name: 'Robotic Process Automation', icon: '🦾', link: '/resources/topics/rpa' },
+    { name: 'Automatic Fare Collection', icon: '🚌', link: '/resources/topics/afc' },
+    { name: 'Big Data and Analytics', icon: '📊', link: '/resources/topics/big-data' },
+    { name: 'Salesforce', icon: '☁️', link: '/resources/topics/salesforce' },
+    { name: 'Product Engineering', icon: '🔧', link: '/resources/topics/product-engineering' },
+    { name: 'Customer Experience', icon: '😊', link: '/resources/topics/cx' },
+    { name: 'Consumer Research & Analytics', icon: '🔍', link: '/resources/topics/research-analytics' },
   ];
 
   const categories = [
     { name: 'Customer Testimonials', icon: '💬', link: '/resources/testimonials' },
     { name: 'Case Studies', icon: '📋', link: '/resources/case-studies' },
     { name: 'Product Demos', icon: '🎥', link: '/resources/demos' },
-    { name: 'Analyst Reports', icon: '📈', link: '/resources/reports' },
+    { name: 'Analyst Reports', icon: '📈', link: '/resources/analyst-reports' },
     { name: 'White Papers', icon: '📄', link: '/resources/whitepapers' },
     { name: 'Brochures', icon: '📑', link: '/resources/brochures' },
     { name: 'Thoughtcast', icon: '🎙️', link: '/resources/thoughtcast' },
     { name: 'Webinars', icon: '🎤', link: '/resources/webinars' },
     { name: 'Infographics', icon: '📸', link: '/resources/infographics' },
-    { name: 'Blogs', icon: '📝', link: '/resources/blog' },
-    { name: 'Newsletters', icon: '📧', link: '/resources/newsletter' },
+    { name: 'Blogs', icon: '📝', link: '/resources/blogs' },
+    { name: 'Newsletters', icon: '📧', link: '/resources/newsletters' },
   ];
 
   const containerVariants = {

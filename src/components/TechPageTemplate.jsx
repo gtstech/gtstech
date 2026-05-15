@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import HeroSection from './sections/HeroSection';
 import FeaturesSection from './sections/FeaturesSection';
-import ResourcesSection from './sections/ResourcesSection';
 import ContactForm from './common/ContactForm';
 import CTABanner from './common/CTABanner';
 
