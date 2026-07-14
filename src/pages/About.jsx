@@ -1,28 +1,22 @@
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { FiArrowRight, FiUser } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 export default function About() {
-  const team = [
-    { name: 'Rajesh Kumar', role: 'CEO & Founder' },
-    { name: 'Priya Singh', role: 'CTO' },
-    { name: 'Amit Patel', role: 'Head of Operations' },
-    { name: 'Sarah Johnson', role: 'Lead Designer' },
-  ];
-
   const values = [
-    { title: 'Innovation', desc: 'Cutting-edge solutions for modern challenges' },
-    { title: 'Excellence', desc: 'Premium quality in every project' },
-    { title: 'Reliability', desc: '24/7 support and guaranteed uptime' },
-    { title: 'Integrity', desc: 'Transparent and honest partnerships' },
+    { title: 'Innovation', desc: 'Designing future-ready digital operations with AI and automation.' },
+    { title: 'Collaboration', desc: 'Partnering closely with clients to solve the right problems.' },
+    { title: 'Accountability', desc: 'Delivering predictable outcomes with disciplined execution.' },
+    { title: 'Growth', desc: 'Enabling faster, safer, and more sustainable business transformation.' },
   ];
 
   return (
     <>
       <Helmet>
         <title>About Us - GTS Techs | Enterprise Digital Solutions</title>
-        <meta name="description" content="Learn about GTS Techs, our mission, vision, and the team behind our success in enterprise digital transformation." />
+        <meta name="description" content="Discover GTS Techs' mission, purpose, and approach to enterprise digital transformation through automation, cloud, and AI-powered solutions." />
       </Helmet>
 
       {/* Hero Section */}
@@ -60,7 +54,7 @@ export default function About() {
               About <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-transparent bg-clip-text">GTS Techs</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-              Enterprise Digital Excellence Partner
+              Building resilient enterprise platforms that combine automation, intelligence, and operational clarity.
             </p>
           </motion.div>
         </div>
@@ -80,13 +74,13 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  GTS Tech and Infra Solutions is a premier enterprise technology services partner specializing in digital transformation, cloud infrastructure, and intelligent automation. We are committed to delivering world-class technology solutions that drive business excellence.
+                  At GTS Techs, we architect and deliver digital solutions that help enterprises operate faster, safer, and with greater confidence. Our work is grounded in practical automation, cloud-native systems, and data-driven decision workflows.
                 </p>
                 <p>
-                  Based in Chennai, we serve a diverse portfolio of enterprise clients across banking, finance, manufacturing, healthcare, and other critical industries. Our expertise spans cloud platforms, enterprise software, AI/ML solutions, and operational automation.
+                  From our Chennai innovation hub, we support customers across financial services, manufacturing, healthcare, logistics, and public sector delivery. We blend technology, process expertise, and domain knowledge to make digital change real.
                 </p>
                 <p>
-                  With our experienced team of technologists and enterprise consultants, we partner with organizations to modernize their IT infrastructure, optimize operations, and accelerate their digital journey.
+                  We believe transformation succeeds when strategy, execution, and continuous improvement are aligned. That is why our teams focus on measurable value and sustainable operations, not just shiny technology.
                 </p>
               </div>
             </motion.div>
@@ -149,7 +143,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Approach Section */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
@@ -157,28 +151,33 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-5xl font-black text-gray-900 text-center mb-16"
           >
-            Our <span className="text-red-500">Leadership</span>
+            How We <span className="text-red-500">Deliver</span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-red-100/50 to-transparent border border-gray-300 rounded-2xl p-6 text-center hover:border-red-200 transition"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
-                    <FiUser className="text-4xl text-red-600" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-red-600 text-sm">{member.role}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="rounded-3xl border border-gray-200 bg-white p-10 shadow-sm"
+            >
+              <h3 className="text-3xl font-black text-gray-900 mb-5">Delivery with Impact</h3>
+              <p className="text-gray-600 leading-relaxed">
+                We work with business leaders to translate enterprise goals into practical technology outcomes. Our engagements begin with the outcome, not the tool, so every solution is designed to improve efficiency, resilience, and customer experience.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="rounded-3xl border border-gray-200 bg-white p-10 shadow-sm"
+            >
+              <h3 className="text-3xl font-black text-gray-900 mb-5">Built for Scale</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our approach combines cloud-native architecture, automation, and analytics to create solutions that grow with the business. We focus on modular platforms, measurable KPIs, and a continuous improvement mindset.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -228,14 +227,19 @@ export default function About() {
             Let's discuss how we can drive digital excellence in your organization
           </p>
 
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.05 }}
-            className="px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-all flex items-center justify-center gap-2 mx-auto"
+            className="mx-auto inline-block"
           >
-            Get In Touch <FiArrowRight />
-          </motion.button>
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-all flex items-center justify-center gap-2"
+            >
+              Get In Touch <FiArrowRight />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </>
