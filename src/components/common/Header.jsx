@@ -158,48 +158,8 @@ const NAV = [
   {
     name: 'Products',
     id: 'products',
-    cols: 2,
-    categories: [
-      {
-        title: 'RPA & Intelligent Automation',
-        items: [
-          { label: 'TruBot — Robotic Process Automation', path: '/products/trubot' },
-          { label: 'TruCap+ — Intelligent Document Processing', path: '/products/trucap' },
-          { label: 'TruAgent — AI Agents', path: '/products/truagent' },
-        ],
-        link: '/products',
-      },
-      {
-        title: 'Analytics & Intelligence',
-        items: [
-          { label: 'TruBI — Business Intelligence', path: '/products/trubi' },
-          { label: 'TruAI Underwriting', path: '/products/truai-underwriting' },
-          { label: 'TruDiscovery', path: '/products/trudiscovery' },
-        ],
-        link: '/products',
-      },
-      {
-        title: 'Customer Experience',
-        items: [
-          { label: 'SuperCX — Omnichannel CX Platform', path: '/products/supercx' },
-        ],
-        link: '/products/supercx',
-        badge: 'Direct',
-      },
-      {
-        title: 'Finance Transformation',
-        items: [
-          { label: 'FINATO — CFO Backoffice Platform', path: '/products/finato' },
-        ],
-        link: '/products/finato',
-        badge: 'Direct',
-      },
-    ],
-    footer: {
-      icon: '✨',
-      text: 'Explore Our Complete Product Portfolio',
-      path: '/products',
-    },
+    path: '/coming-soon',
+    categories: [],
   },
   {
     name: 'Industries',
@@ -252,59 +212,8 @@ const NAV = [
   {
     name: 'Resources',
     id: 'resources',
-    cols: 4,
-    categories: [
-      {
-        title: 'Topics',
-        items: [
-          { label: 'Artificial Intelligence', path: '/resources/topics/ai' },
-          { label: 'Digital Finance & Accounting', path: '/resources/topics/digital-finance' },
-          { label: 'Intelligent Automation', path: '/resources/topics/intelligent-automation' },
-          { label: 'Enterprise Content Management', path: '/resources/topics/ecm' },
-          { label: 'Robotic Process Automation', path: '/resources/topics/rpa' },
-          { label: 'Automatic Fare Collection', path: '/resources/topics/afc' },
-        ],
-        link: '/resources',
-      },
-      {
-        title: 'More Topics',
-        items: [
-          { label: 'Big Data & Analytics', path: '/resources/topics/big-data' },
-          { label: 'Salesforce', path: '/resources/topics/salesforce' },
-          { label: 'Product Engineering', path: '/resources/topics/product-engineering' },
-          { label: 'Customer Experience', path: '/resources/topics/cx' },
-          { label: 'Research & Analytics', path: '/resources/topics/research-analytics' },
-        ],
-        link: '/resources',
-      },
-      {
-        title: 'Content Types',
-        items: [
-          { label: 'Case Studies', path: '/resources/case-studies' },
-          { label: 'White Papers', path: '/resources/whitepapers' },
-          { label: 'Webinars', path: '/resources/webinars' },
-          { label: 'Analyst Reports', path: '/resources/analyst-reports' },
-          { label: 'Thoughtcast', path: '/resources/thoughtcast' },
-        ],
-        link: '/resources',
-      },
-      {
-        title: 'More Content',
-        items: [
-          { label: 'Blogs', path: '/resources/blogs' },
-          { label: 'Demos', path: '/resources/demos' },
-          { label: 'Brochures', path: '/resources/brochures' },
-          { label: 'Infographics', path: '/resources/infographics' },
-          { label: 'Newsletters', path: '/resources/newsletters' },
-        ],
-        link: '/resources',
-      },
-    ],
-    footer: {
-      icon: '🚀',
-      text: 'Explore Agentic AI Use Cases and Research',
-      path: '/resources/topics/ai',
-    },
+    path: '/coming-soon',
+    categories: [],
   },
   {
     name: 'About Us',
@@ -324,20 +233,20 @@ const NAV = [
       {
         title: 'People & Culture',
         items: [
-          { label: 'Leadership', path: '/about/leadership' },
-          { label: 'DataLabs', path: '/about/datalabs' },
-          { label: 'Awards and Recognition', path: '/about/awards' },
-          { label: 'Alliances', path: '/about/alliances' },
-          { label: 'Careers', path: '/careers' },
+          { label: 'Leadership', path: '/coming-soon' },
+          { label: 'DataLabs', path: '/coming-soon' },
+          { label: 'Awards and Recognition', path: '/coming-soon' },
+          { label: 'Alliances', path: '/coming-soon' },
+          { label: 'Careers', path: '/coming-soon' },
         ],
-        link: '/about/leadership',
+        link: '/coming-soon',
       },
       {
         title: 'Global Presence',
         items: [
           { label: 'Our Offices', path: '/about/offices' },
-          { label: 'Customer Testimonials', path: '/about/testimonials' },
-          { label: 'Media', path: '/resources/media' },
+          { label: 'Customer Testimonials', path: '/coming-soon' },
+          { label: 'Media', path: '/coming-soon' },
           { label: 'Contact Us', path: '/contact' },
         ],
         link: '/about/offices',
@@ -421,23 +330,33 @@ export default function Header() {
             {/* Desktop nav buttons */}
             <div className="hidden lg:flex items-center space-x-0.5">
               {NAV.map((item) => (
-                <button
-                  key={item.id}
-                  onMouseEnter={() => setOpenDropdown(item.id)}
-                  className={`px-3 py-2 text-xs font-bold rounded-md flex items-center gap-1 transition-all ${
-                    openDropdown === item.id
-                      ? 'text-red-600 bg-red-50'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-red-50/50'
-                  }`}
-                >
-                  {item.name}
-                  <FiChevronDown
-                    size={12}
-                    className={`transition-transform duration-200 ${
-                      openDropdown === item.id ? 'rotate-180' : ''
+                item.categories.length === 0 && item.path ? (
+                  <Link
+                    key={item.id}
+                    to={item.path}
+                    className="px-3 py-2 text-xs font-bold rounded-md flex items-center gap-1 transition-all text-gray-700 hover:text-red-600 hover:bg-red-50/50"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.id}
+                    onMouseEnter={() => setOpenDropdown(item.id)}
+                    className={`px-3 py-2 text-xs font-bold rounded-md flex items-center gap-1 transition-all ${
+                      openDropdown === item.id
+                        ? 'text-red-600 bg-red-50'
+                        : 'text-gray-700 hover:text-red-600 hover:bg-red-50/50'
                     }`}
-                  />
-                </button>
+                  >
+                    {item.name}
+                    <FiChevronDown
+                      size={12}
+                      className={`transition-transform duration-200 ${
+                        openDropdown === item.id ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                )
               ))}
             </div>
 
@@ -558,10 +477,10 @@ export default function Header() {
               <div className="max-h-[calc(100vh-104px)] overflow-y-auto divide-y divide-gray-100">
                 {NAV.map((item) => (
                   <MobileSection
-                    key={item.id}
-                    item={item}
-                    onClose={() => setIsMobileOpen(false)}
-                  />
+                  key={item.id}
+                  item={item}
+                  onClose={() => setIsMobileOpen(false)}
+                />
                 ))}
                 <div className="p-4">
                   <Link
@@ -598,6 +517,20 @@ export default function Header() {
 // ─── Mobile accordion section ────────────────────────────────────────────────
 function MobileSection({ item, onClose }) {
   const [expanded, setExpanded] = useState(false);
+
+  if (item.categories.length === 0 && item.path) {
+    return (
+      <div className="border-b border-gray-100">
+        <Link
+          to={item.path}
+          onClick={onClose}
+          className="w-full block px-4 py-3.5 text-gray-700 hover:text-red-600 hover:bg-red-50/40 transition-all text-sm font-bold"
+        >
+          {item.name}
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -644,13 +577,15 @@ function MobileSection({ item, onClose }) {
                     </ul>
                   )}
 
-                  <Link
-                    to={cat.link}
-                    onClick={onClose}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-red-500 hover:text-red-700 transition-colors"
-                  >
-                    View All <FiArrowRight size={10} />
-                  </Link>
+                  {cat.link && (
+                    <Link
+                      to={cat.link}
+                      onClick={onClose}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-red-500 hover:text-red-700 transition-colors"
+                    >
+                      View All <FiArrowRight size={10} />
+                    </Link>
+                  )}
                 </div>
               ))}
             </div>
